@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- image source: https://www.pngkit.com/png/detail/78-785098_small-smoothie-clip-art.png -->
+    <link rel="icon" href="img/smoothie.png">
+    <title>Smoothie Machine | COMP1073 Client-Side JavaScript</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- audio element to play background music on loop; I know this is not best practice, but I wanted to try it out 
+        as a fun addition to the application; song has loop attribute to keep playing while user makes smoothie -->
+    <audio id="music" loop>
+        <source src="music/chill.mp3">
+    </audio>
+    <script src="js/smoothie.js"></script>
+</head>
+
+<body>
+    <!-- top section to hold h1 and app logo -->
+    <section class="top">
+        <h1>Welcome to the Smoothie Machine!</h1>
+        <!-- image source: https://www.pngkit.com/png/detail/78-785098_small-smoothie-clip-art.png -->
+        <img src="img/smoothie.png" alt="site logo" id="logo" height="140" width="auto">
+    </section>
+    <!-- middle section to hold h2 and form element -->
+    <section class="middle">
+        <h2>Please Customize Your Smoothie with the Options Below!</h2>
+        <!-- form for user to select different smoothie options -->
+        <form id="smoothieOrder">
+            <!-- text input for user name -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <br>
+            <!-- select element for smoothie size -->
+            <label for="size">Size:</label>
+            <select name="sizes" id="size">
+                <option value="">-- Please Select Size --</option>
+                <option value="Small">Small ($2.00)</option>
+                <option value="Medium">Medium ($3.00)</option>
+                <option value="Large">Large ($4.00)</option>
+                <option value="Jumbo">Jumbo ($5.00)</option>
+            </select>
+            <br>
+            <br>
+            <!-- select element for smoothie blend style -->
+            <label for="style">Blend Style:</label>
+            <select name="styles" id="style">
+                <option value="">-- Please Select Style --</option>
+                <option value="Smooth">Smooth</option>
+                <option value="Well-Blended">Well-Blended</option>
+                <option value="Chunky">Chunky</option>
+            </select>
+            <br>
+            <br>
+            <!-- checkbox for liquids -->
+            <h3>Select a Liquid Base for Your Smoothie</h3>
+            <input type="checkbox" id="liquid1" name="liquid1" value="Milk">
+            <label for="liquid1">Milk ($2.00)</label>
+            <input type="checkbox" id="liquid2" name="liquid2" value="Water">
+            <label for="liquid2">Water ($1.00)</label>
+            <input type="checkbox" id="liquid3" name="liquid3" value="Almond Milk">
+            <label for="liquid3">Almond Milk ($1.50)</label>
+            <!-- checkbox for ice creams -->
+            <h3>Add Ice Cream to Your Smoothie ($1.00 ea.)</h3>
+            <input type="checkbox" id="cream1" name="cream1" value="Chocolate">
+            <label for="cream1">Chocolate</label>
+            <input type="checkbox" id="cream2" name="cream2" value="Vanilla">
+            <label for="cream2">Vanilla</label>
+            <input type="checkbox" id="cream3" name="cream3" value="Strawberry">
+            <label for="cream3">Strawberry</label>
+            <input type="checkbox" id="cream4" name="cream4" value="Mint Chip">
+            <label for="cream4">Mint Chip</label>
+            <!-- checkbox for fruits -->
+            <h3>Add Fruits to Your Smoothie ($0.75 ea.)</h3>
+            <input type="checkbox" id="fruit1" name="fruit1" value="Apple">
+            <label for="fruit1">Apple</label>
+            <input type="checkbox" id="fruit2" name="fruit2" value="Banana">
+            <label for="fruit2">Banana</label>
+            <input type="checkbox" id="fruit3" name="fruit3" value="Strawberry">
+            <label for="fruit3">Strawberry</label>
+            <input type="checkbox" id="fruit4" name="fruit4" value="Kiwi">
+            <label for="fruit4">Kiwi</label>
+            <!-- checkbox for veggies -->
+            <h3>Add Vegetables to Your Smoothie ($0.75 ea.)</h3>
+            <input type="checkbox" id="veg1" name="veg1" value="Spinach">
+            <label for="veg1">Spinach</label>
+            <input type="checkbox" id="veg2" name="veg2" value="Celery">
+            <label for="veg2">Celery</label>
+            <input type="checkbox" id="veg3" name="veg3" value="Carrot">
+            <label for="veg3">Carrot</label>
+            <input type="checkbox" id="veg4" name="veg4" value="Kale">
+            <label for="veg4">Kale</label>
+            <br>
+            <br>
+            <!-- select element for smoothie add-on -->
+            <label for="add">Add-On:</label>
+            <select name="adds" id="add">
+                <option value="">-- Add-On --</option>
+                <option value="Espresso Shot">Espresso Shot ($0.50)</option>
+                <option value="Whipped Cream">Whipped Cream ($1.00)</option>
+                <option value="Chocolate Syrup">Chocolate Syrup ($1.00)</option>
+            </select>
+            <br>
+            <br>
+            <!-- text input for special instructions/allergies -->
+            <label for="special">Special Instructions/Allergies:</label>
+            <input type="text" id="special" name="special">
+            <br>
+            <br>
+            <!-- submit button calls the validateForm() function onclick -->
+            <button type="button" id="submit" onclick="validateForm()">Order</button>
+            <!-- reset button will reset all form inputs -->
+            <button type="reset" class="reset">Reset</button>
+        </form>
+    </section>
+    <!-- bottom section to hold h3, custom smoothie img, and summary p elements -->
+    <section class="bottom">
+        <h3>Smoothie Order Submission:</h3>
+        <!-- image source: https://www.shutterstock.com/image-vector/smoothie-plastic-cup-icon-outline-260nw-1652381527.jpg -->
+        <!-- img visibility hidden until user submits order -->
+        <img id="customSmoothie" src="img/smoothie-outline.png" style="visibility: hidden;">
+        <!-- summary p element to display user smoothie order or error message if validation fails -->
+        <p id="summary"></p>
+    </section>
+</body>
+
+</html>

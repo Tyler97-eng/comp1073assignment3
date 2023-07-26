@@ -1,0 +1,73 @@
+/*****GENERAL BODY STYLING*******/
+body {
+    margin: 0px;
+    background-color: pink;
+    display: grid;
+    /* define grid template areas to set page layout */
+    grid-template-areas:
+        'top top'
+        'middle bottom';
+    padding-bottom: 3%;
+}
+
+/* add underline to h1 */
+h1 {
+    text-decoration: underline;
+
+}
+
+/* set top section items to the middle of the grid area with margins */
+.top {
+    grid-area: top;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* add margins to site logo img */
+#logo {
+    margin-left: 40%;
+    margin-bottom: 5%;
+}
+
+/* add small margin-left to form */
+.middle {
+    grid-area: middle;
+    margin-left: 3%;
+}
+
+/* add margins to top of h3 elements in form */
+h3 {
+    margin-top: 5%;
+}
+
+/* increase size and change colour of submit button */
+#submit {
+    color: white;
+    background-color: red;
+    height: 40px;
+    width: 60px;
+}
+
+/* add left margin to reset button */
+.reset {
+    margin-left: 5%;
+}
+
+/* make bottom section white with dashed border */
+.bottom {
+    background-color: whitesmoke;
+    grid-area: bottom;
+    border: 5px dashed;
+}
+
+/* centre h3 text in bottom section */
+.bottom h3 {
+    text-align: center;
+}
+
+/* align text in centre and set wrap to normal for summary p element in bottom section */
+#summary {
+    overflow-wrap: normal;
+    text-align: center;
+}
